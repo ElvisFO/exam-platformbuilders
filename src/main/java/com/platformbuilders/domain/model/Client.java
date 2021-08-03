@@ -2,10 +2,7 @@ package com.platformbuilders.domain.model;
 
 import com.platformbuilders.domain.dto.ClientDTO;
 import com.platformbuilders.domain.enums.Gender;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -51,6 +48,7 @@ import java.io.Serializable;
                 resultSetMapping = "SearchMapping.count"),
 })
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

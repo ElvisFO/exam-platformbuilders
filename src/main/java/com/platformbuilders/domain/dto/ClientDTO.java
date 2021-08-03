@@ -1,9 +1,6 @@
 package com.platformbuilders.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -12,6 +9,7 @@ import java.io.Serializable;
  * @project platform-builders
  */
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

@@ -26,7 +26,7 @@ Ter o `docker` e o `maven` instalados em seu ambiente.
 
 ## Comandos
 
-* Na raiz do projeto executar `mvn clean install`. Será gerado um `app.jar` na pasta `target
+* Na raiz do projeto executar `mvn clean install`. Será gerado um `app.jar` na pasta `target`
 * Na pasta `docker` executar o comando `docker-compose up -d`. Esse processo  irá inicializar o banco e aplicação.
 E ainda irá executar o flyway para aplicar os migrations.
 

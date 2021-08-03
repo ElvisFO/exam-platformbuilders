@@ -57,7 +57,7 @@ public class ClientService {
     }
 
     @Transactional(readOnly = true)
-    public List<ClientDTO> search(String name, Integer age, String phone, String email, String gender, Pageable pageable) {
+    public List<ClientDTO> search(Integer age, String name, String phone, String email, String gender, Pageable pageable) {
         return repository.search(age, addLike(name), isEmpty(name), addLike(email), isEmpty(email), phone, isEmpty(phone), gender, isEmpty(gender), pageable).getContent();
     }
 }

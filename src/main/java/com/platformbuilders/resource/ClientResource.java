@@ -56,6 +56,6 @@ public class ClientResource {
                                                   @RequestParam(value = "gender", required = false, defaultValue = "") String gender,
                                                   @PageableDefault Pageable pageable) {
 
-        return ResponseEntity.ok(service.search(name, age, phone, email, gender, pageable));
+        return ResponseEntity.ok(service.search(age, name, phone, email, gender, pageable));
     }
 }
