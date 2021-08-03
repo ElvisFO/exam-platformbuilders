@@ -14,6 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Elvis Fernandes on 01/08/2021
@@ -28,23 +29,23 @@ public class ClientResource {
     private final ClientService service;
 
     @GetMapping
-    public ResponseEntity<List<Client>> findAll(@PageableDefault Pageable pageable) {
-        return ResponseEntity.ok(service.findAll(pageable));
+    public ResponseEntity<List<ClientDTO>> findAll(@PageableDefault Pageable pageable) {
+        return ResponseEntity.ok(service.findAll(pageable).stream().map(Client::toDTO).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Client> findId(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(service.findId(id));
+    public ResponseEntity<ClientDTO> findId(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(service.findId(id).toDTO());
     }
 
     @PostMapping
-    public ResponseEntity<Client> save(@Validated @RequestBody Client client) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(client));
+    public ResponseEntity<Client> save(@Validated @RequestBody ClientDTO dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(dto.toEntity()));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Client> update(@PathVariable("id") Long id, @Validated @RequestBody Client client) {
-        service.update(id, client);
+    public ResponseEntity<Client> update(@PathVariable("id") Long id, @Validated @RequestBody ClientDTO dto) {
+        service.update(id, dto.toEntity());
         return ResponseEntity.noContent().build();
     }
 

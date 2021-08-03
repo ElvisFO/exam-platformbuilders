@@ -77,4 +77,16 @@ public class Client implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
+    @Transient
+    public ClientDTO toDTO() {
+        return ClientDTO.builder()
+                .id(id)
+                .age(age)
+                .name(name)
+                .email(email)
+                .phone(phone)
+                .gender(gender.name())
+                .build();
+    }
 }

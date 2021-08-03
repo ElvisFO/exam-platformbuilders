@@ -7,4 +7,12 @@ package com.platformbuilders.domain.enums;
 public enum Gender {
 
     MASCULINO, FEMININO;
+
+    public static Gender toEnum(String value) {
+        for (Gender gender : Gender.values()) {
+            if(gender.name().equalsIgnoreCase(value))
+                return gender;
+        }
+        throw new IllegalArgumentException(String.format("Não existe um gênero para o valor informado: %s", value));
+    }
 }
