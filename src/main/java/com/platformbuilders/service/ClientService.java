@@ -1,12 +1,10 @@
 package com.platformbuilders.service;
 
 import com.platformbuilders.domain.dto.ClientDTO;
-import com.platformbuilders.domain.enums.Gender;
-import com.platformbuilders.exception.EmailExistsException;
 import com.platformbuilders.domain.model.Client;
+import com.platformbuilders.exception.EmailExistsException;
 import com.platformbuilders.exception.ObjectNotFoundException;
 import com.platformbuilders.repository.ClientRepository;
-import com.platformbuilders.util.SQLUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +15,6 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.platformbuilders.util.SQLUtil.addLike;
-import static java.util.Objects.isNull;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
@@ -61,6 +58,6 @@ public class ClientService {
 
     @Transactional(readOnly = true)
     public List<ClientDTO> search(String name, Integer age, String phone, String email, String gender, Pageable pageable) {
-        return repository.search(age, addLike(name), isEmpty(name), addLike(email), isEmpty(email), phone, isEmpty(phone), gender, isNull(gender), pageable).getContent();
+        return repository.search(age, addLike(name), isEmpty(name), addLike(email), isEmpty(email), phone, isEmpty(phone), gender, isEmpty(gender), pageable).getContent();
     }
 }

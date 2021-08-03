@@ -50,10 +50,10 @@ public class ClientResource {
 
     @GetMapping("/search")
     public ResponseEntity<List<ClientDTO>> search(@RequestParam(value = "age") Integer age,
-                                                  @RequestParam(value = "name", required = false) String name,
-                                                  @RequestParam(value = "phone", required = false) String phone,
-                                                  @RequestParam(value = "email", required = false) String email,
-                                                  @RequestParam(value = "gender", required = false) String gender,
+                                                  @RequestParam(value = "name", required = false, defaultValue = "") String name,
+                                                  @RequestParam(value = "phone", required = false, defaultValue = "") String phone,
+                                                  @RequestParam(value = "email", required = false, defaultValue = "") String email,
+                                                  @RequestParam(value = "gender", required = false, defaultValue = "") String gender,
                                                   @PageableDefault Pageable pageable) {
 
         return ResponseEntity.ok(service.search(name, age, phone, email, gender, pageable));

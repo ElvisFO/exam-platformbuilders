@@ -1,0 +1,10 @@
+CREATE SCHEMA IF NOT EXISTS client;
+
+CREATE TABLE IF NOT EXISTS tb_client (
+  id bigserial NOT NULL,
+  name VARCHAR(250) NOT NULL,
+  age INT NOT NULL,
+  phone VARCHAR(15) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  gender VARCHAR(10) NOT NULL
+);

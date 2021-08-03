@@ -35,19 +35,19 @@ import java.io.Serializable;
                 name = "Client.search",
                 query = "SELECT * FROM tb_client t " +
                         "WHERE t.age = :age " +
-                        "AND ((:existName = true) OR t.name like :name) " +
-                        "AND ((:existEmail = true) OR t.email like :email) " +
-                        "AND ((:existPhone = true) OR t.phone = :phone) " +
-                        "AND ((:existGender = true) OR t.gender = :gender)",
+                        "AND ((:existName = true) OR (t.name like :name)) " +
+                        "AND ((:existEmail = true) OR (t.email like :email)) " +
+                        "AND ((:existPhone = true) OR (t.phone = :phone)) " +
+                        "AND ((:existGender = true) OR (t.gender = :gender)) ",
                 resultSetMapping="SearchMapping"),
         @NamedNativeQuery(
                 name = "Client.search.count",
-                query = "SELECT count(*) as cnt FROM tb_client " +
+                query = "SELECT count(*) as cnt FROM tb_client t " +
                 "WHERE t.age = :age " +
-                "AND ((:existName = true) OR t.name like :name) " +
-                "AND ((:existEmail = true) OR t.email like :email) " +
-                "AND ((:existPhone = true) OR t.phone = :phone) " +
-                "AND ((:existGender = true) OR t.gender = :gender)",
+                "AND ((:existName = true) OR (t.name like :name)) " +
+                "AND ((:existEmail = true) OR (t.email like :email)) " +
+                "AND ((:existPhone = true) OR (t.phone = :phone)) " +
+                "AND ((:existGender = true) OR (t.gender = :gender)) ",
                 resultSetMapping = "SearchMapping.count"),
 })
 
