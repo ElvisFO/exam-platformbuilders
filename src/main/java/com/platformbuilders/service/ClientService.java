@@ -50,7 +50,7 @@ public class ClientService {
     public void update(Long id, Client client) {
         client.setId(id);
         Client clientData = repository.findByEmail(client.getEmail()).orElse(null);
-        if(Objects.nonNull(clientData) && !clientData.equals(client.getId()))
+        if(Objects.nonNull(clientData) && !clientData.getId().equals(client.getId()))
             throw new EmailExistsException("E-mail já cadastrado");
 
         repository.save(client);

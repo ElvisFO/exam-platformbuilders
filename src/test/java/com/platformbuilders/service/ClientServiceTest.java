@@ -104,11 +104,11 @@ class ClientServiceTest {
     @DisplayName("Não deve atualizar dados de cliente, quando e-mail já estiver na base com outro usuário")
     public void update_exception() {
         Client client = ModelsBuilder.client();
-        Client clientRandom= ModelsBuilder.clientRandom();
+        Client clientRandom = ModelsBuilder.clientRandom();
 
         when(repository.findByEmail(anyString())).thenReturn(Optional.ofNullable(client));
 
-        Assertions.assertThrows(EmailExistsException.class, () -> service.update(1L, clientRandom));
+        Assertions.assertThrows(EmailExistsException.class, () -> service.update(clientRandom.getId(), clientRandom));
 
         verify(repository, times(1)).findByEmail(anyString());
         verify(repository, never()).save(any(Client.class));
