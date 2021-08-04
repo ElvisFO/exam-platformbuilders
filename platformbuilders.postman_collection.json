@@ -1,0 +1,117 @@
+{
+	"variables": [],
+	"info": {
+		"name": "platformbuilders",
+		"_postman_id": "50d8422b-3023-5dc0-9a10-3eba292f5879",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FindAll",
+			"request": {
+				"url": "http://localhost:8080/api/clients",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "FindById",
+			"request": {
+				"url": "http://localhost:8080/api/clients/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/api/clients/search?age=85&name=Go&gender=MASCULINO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clients",
+						"search"
+					],
+					"query": [
+						{
+							"key": "age",
+							"value": "85",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "name",
+							"value": "Go",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "gender",
+							"value": "MASCULINO",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save",
+			"request": {
+				"url": "http://localhost:8080/api/clients",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Goran\",\n    \"age\": 69,\n    \"phone\": \"31777777\",\n    \"email\": \"goran@gmail.com\",\n    \"gender\": \"MASCULINO\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"url": "http://localhost:8080/api/clients/4",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Goran\",\n    \"age\": 85,\n    \"phone\": \"31777777\",\n    \"email\": \"goran@gmail.com\",\n    \"gender\": \"FEMININO\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
